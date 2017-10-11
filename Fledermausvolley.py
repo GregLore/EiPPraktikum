@@ -56,7 +56,9 @@ class MyRenderAreaFledermaus1(QWidget):
         global ballPos
         ballSpeed = (ballSpeed[0]*0.9 + v[0]/2, ballSpeed[1]*0.7 + v[1]/2)
         ballPos = (ballPos[0] + ballSpeed[0], max(0, (ballPos[1] + ballSpeed[1])))
-        if 50 < ballPos[0] < 900:
+        if ballPos == (500,250):
+            ballSpeed = (ballSpeed[0], -ballSpeed[1] - 1)
+        elif 50 < ballPos[0] < 900 or ballPos[0] == 500:
             ballSpeed = (ballSpeed[0], ballSpeed[1]-1)
         else:
             ballSpeed = (-ballSpeed[0], ballSpeed[1] - 1)
